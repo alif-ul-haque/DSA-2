@@ -15,8 +15,9 @@ void dijsktra(int n,vector<vector<pair<int,int>>>&adj)
     priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
     pq.push({0,1});
     vector<int>dis(n+1,INT_MAX);
-    dis[1] = 1;
+    dis[1] = 0;
     vector<int>par(n+1,-1);
+    par[1] = 1;
     vector<bool>vis(n+1,false);
     while(!pq.empty())
     {
@@ -42,7 +43,20 @@ void dijsktra(int n,vector<vector<pair<int,int>>>&adj)
     {
         cout<<i<<" is away from 1 ---> "<<dis[i]<<endl;
     }
-
+    vector<int>path;
+    int e = 5;
+    while(par[e]!=e)
+    {
+        path.push_back(e);
+        e = par[e];
+    }
+    path.push_back(e);
+    reverse(path.begin(),path.end());
+    for(auto x:path)
+    {
+        cout<<x<<" ";
+    }
+    cout<<endl;
 }
 signed main()
  {
