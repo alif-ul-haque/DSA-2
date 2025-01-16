@@ -40,8 +40,9 @@ void dijsktra(int n,vector<vector<pair<int,int>>>&adj)
     }
     for(int i=1;i<n+1;i++)
     {
-        cout<<i<<" ---> "<<dis[i]<<endl;
+        cout<<i<<" is away from 1 ---> "<<dis[i]<<endl;
     }
+
 }
 signed main()
  {
