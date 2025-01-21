@@ -10,6 +10,7 @@ using namespace std;
 #define spc " "
 #define pb push_back
 #define pf push_front;
+
 void dijsktra(int n,vector<vector<pair<int,int>>>&adj)
 {
     priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
