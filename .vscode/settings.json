@@ -5,7 +5,15 @@
         "vector": "cpp",
         "deque": "cpp",
         "string": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "any": "cpp",
+        "array": "cpp",
+        "fstream": "cpp",
+        "optional": "cpp",
+        "shared_mutex": "cpp",
+        "sstream": "cpp",
+        "tuple": "cpp",
+        "variant": "cpp"
     },
     "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

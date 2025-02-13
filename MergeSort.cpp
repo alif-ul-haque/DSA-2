@@ -10,54 +10,59 @@ using namespace std;
 #define spc " "
 #define pb push_back
 #define pf push_front;
-int partition(vector<int>&arr,int low,int high)
+void merge(vector<int>&arr,int low,int mid,int high)
 {
-    int i = low;
-    int pivot = arr[low]; 
-    for(int j=low+1;j<=high;j++)
-    {
-         if(arr[j]<=pivot)
-         {
-             i++;
-             swap(arr[i],arr[j]);
-         }
-    }
-    swap(arr[i],arr[low]);
-    return i;
+     int left = low;
+     int right = mid+1;
+     vector<int>tmp;
+     while(left<=mid && right<=high)
+     {
+          if(arr[left]<arr[right])
+          {
+               tmp.push_back(arr[left]);
+               left++;
+          }
+          else
+          {
+               tmp.push_back(arr[right]);
+               right++;
+          }
+     }
+     while(left<=mid)
+     {
+        tmp.push_back(arr[left]);
+        left++;
+     }
+     while(right<=high)
+     {
+        tmp.push_back(arr[right]);
+        right++;
+     }
+     for(int i=low;i<=high;i++)
+     {
+          arr[i] = tmp[i-low];
+     }
 }
-void qs(vector<int>&arr,int low,int high)
+void merge_sort(vector<int>&arr,int low,int high)
 {
-    if(low<=high)
-    {
-         int k = partition(arr,low,high);
-         qs(arr,low,k-1);
-         qs(arr,k+1,high);
-    }
+     if(low>=high) return;
+     int mid = (low+high)/2;
+     merge_sort(arr,low,mid);
+     merge_sort(arr,mid+1,high);
+     merge(arr,low,mid,high);
 }
 signed main()
  {
     granite_state
-    // int n;
-    // cin>>n;
-    // vector<int>arr(n);
-    // for(int i=0;i<n;i++)
-    // cin>>arr[i];
-    // qs(arr,0,n-1);
-    // for(int i=0;i<n;i++)
-    // cout<<arr[i]<<" ";
-    // line;
-    int mn = 1e18;
-    vector<int>arr(1e6);
-    int j;
-    for(int i=0;i<1e6;i++)
-    {
-         int val = rand();
-         arr[i] = val;
-         if(val<mn)
-         j = i;
-    }
-    swap(arr[0],arr[j]);
-    qs(arr,0,1e6-1);
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+    for(int i=0;i<n;i++)
+    cin>>arr[i];
+    merge_sort(arr,0,n-1);
+    for(int i=0;i<n;i++)
+    cout<<arr[i]<<" ";
+    line;
 }
 
     ////////////////////////////////////////////////////
