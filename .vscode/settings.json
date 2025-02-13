@@ -2,6 +2,10 @@
     "files.associations": {
         "ostream": "cpp",
         "iostream": "cpp",
-        "vector": "cpp"
-    }
+        "vector": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "list": "cpp"
+    },
+    "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
