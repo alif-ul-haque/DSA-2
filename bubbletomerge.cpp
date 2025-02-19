@@ -10,54 +10,10 @@ using namespace std;
 #define spc " "
 #define pb push_back
 #define pf push_front;
-int partition(vector<int>&v,int lo,int hig)
-{
-     int pivot = lo;
-     int i = lo;
-     for(int j=lo+1;j<=hig;j++)
-     {
-          if(v[j]<=v[pivot])
-          {
-              i++;
-              swap(v[i],v[j]);
-          }
-     }
-     swap(v[i],v[lo]);
-     return i;
-}
-void qs(vector<int>&arr,int lo,int hig)
-{
-     if(lo<=hig)
-     {
-          int k = partition(arr,lo,hig);
-          qs(arr,lo,k-1);
-          qs(arr,k+1,hig);
-     }
-}
+
 signed main()
  {
     granite_state
-    int n;
-    cin>>n;
-    vector<int>arr(n);
-    for(int i=0;i<n;i++)
-    cin>>arr[i];
-    qs(arr,0,n-1);
-    for(int i=0;i<n;i++)
-    cout<<arr[i]<<" ";
-    line;
-    // int mn = 1e18;
-    // vector<int>arr(1e6);
-    // int j;
-    // for(int i=0;i<1e6;i++)
-    // {
-    //      int val = rand();
-    //      arr[i] = val;
-    //      if(val<mn)
-    //      j = i;
-    // }
-    // swap(arr[0],arr[j]);
-    // qs(arr,0,1e6-1);
 }
 
     ////////////////////////////////////////////////////
