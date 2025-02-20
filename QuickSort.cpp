@@ -25,11 +25,27 @@ int partition(vector<int>&v,int lo,int hig)
      swap(v[i],v[lo]);
      return i;
 }
+int partition1(vector<int>&v,int lo,int hig)
+{
+     int pivot = hig;
+     int i = lo-1;
+     for(int j=lo;j<hig;j++)
+     {
+          if(v[j]<=v[pivot])
+          {
+              i++;
+              swap(v[i],v[j]);
+          }
+     }
+     i++;
+     swap(v[i],v[hig]);
+     return i;
+}
 void qs(vector<int>&arr,int lo,int hig)
 {
      if(lo<=hig)
      {
-          int k = partition(arr,lo,hig);
+          int k = partition1(arr,lo,hig);
           qs(arr,lo,k-1);
           qs(arr,k+1,hig);
      }
