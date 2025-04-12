@@ -23,7 +23,7 @@ bool is_safe(vector<vector<int>>&adj,int node,vector<int>&clr,int col)
 }
 bool backtracking(int node,int n,vector<vector<int>>&adj,vector<int>&clr)
 {
-    if(node>n) return true;
+    if(node==n+1) return true;
     for(int i=0;i<4;i++)
     {
          if(is_safe(adj,node,clr,i))
